@@ -6,10 +6,26 @@ public func routes(_ router: Router) throws {
     router.get("hello") { req in
         return "Hello, world!"
     }
-
-    // Example of configuring a controller
-    let todoController = TodoController()
-    router.get("todos", use: todoController.index)
-    router.post("todos", use: todoController.create)
-    router.delete("todos", Todo.parameter, use: todoController.delete)
+    
+    router.get("oauth", "token") { (req) -> TokenResponse in
+        
+        return TokenResponse(access_token: "dofje90w9e",
+                             scope: "read_write",
+                             livemode: true,
+                             token_type: "bearer",
+                             refresh_token: "idjs09je0w",
+                             stripe_user_id: "jf04u2t049wjf0w9f09wjf09w",
+                             stripe_publishable_key: "fjdw039rj309jwpo3j093")
+    }
+    
+    router.post("oauth", "token") { (req) -> TokenResponse in
+        
+        return TokenResponse(access_token: "dofje90w9e",
+                             scope: "read_write",
+                             livemode: true,
+                             token_type: "bearer",
+                             refresh_token: "idjs09je0w",
+                             stripe_user_id: "jf04u2t049wjf0w9f09wjf09w",
+                             stripe_publishable_key: "fjdw039rj309jwpo3j093")
+    }
 }
